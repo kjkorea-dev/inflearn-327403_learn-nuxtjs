@@ -1,10 +1,8 @@
 <template>
   <div>
-    <ul>
-      <li>상품 1</li>
-      <li>상품 2</li>
-      <li>상품 3</li>
-    </ul>
+    <h1>{{ $route.name }} 페이지</h1>
+    <Nuxt />
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 

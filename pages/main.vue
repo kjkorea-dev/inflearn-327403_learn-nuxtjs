@@ -1,7 +1,11 @@
 <template>
   <div>
     <NuxtLogo />
-    <h1>메인 페이지</h1>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate illo
+      placeat fugiat minima molestiae ipsam. Dolor, iusto ullam tempora earum
+      rem, eius incidunt quisquam nemo facilis amet vero sunt nam!
+    </p>
   </div>
 </template>
 
