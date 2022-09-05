@@ -1,20 +1,28 @@
 <template>
   <div>
-    <NuxtLogo />
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate illo
-      placeat fugiat minima molestiae ipsam. Dolor, iusto ullam tempora earum
-      rem, eius incidunt quisquam nemo facilis amet vero sunt nam!
-    </p>
+    <p>메인페이지 입니다.</p>
+    <p>{{ products }}</p>
   </div>
 </template>
 
 <script>
-import NuxtLogo from '~/components/NuxtLogo.vue'
+import axios from 'axios'
 export default {
-  components: {
-    NuxtLogo,
+  async asyncData() {
+    const response = await axios.get('http://localhost:3000/products')
+    // console.log(response)
+    const products = response.data
+    return { products }
   },
+  // data() {
+  //   return {
+  //     products: [],
+  //   }
+  // },
+  // async created() {
+  //   const response = await axios.get('http://localhost:3000/products')
+  //   this.products = response.data
+  // },
 }
 </script>
 
