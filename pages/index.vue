@@ -1,16 +1,78 @@
 <template>
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, vitae
-      magnam id qui perspiciatis laudantium, officiis dolorem aliquam quae nemo
-      debitis amet officia, commodi consequatur facilis reprehenderit
-      repudiandae architecto aperiam?
-    </p>
+  <div class="app">
+    <main>
+      <ul>
+        <li v-for="product in products" :key="product.id" class="item flex">
+          <img
+            class="product-image"
+            :src="product.imageUrl"
+            :alt="product.name"
+          />
+          <p>{{ product.name }}</p>
+          <span>{{ product.price }}</span>
+        </li>
+      </ul>
+    </main>
   </div>
 </template>
 
 <script>
-export default {}
+import axios from 'axios'
+export default {
+  async asyncData() {
+    const response = await axios.get('http://localhost:3000/products')
+    // console.log(response)
+    const products = response.data.map((item) => ({
+      ...item,
+      imageUrl: `${item.imageUrl}?random=${Math.random()}`,
+    }))
+    return { products }
+  },
+  // data() {
+  //   return {
+  //     products: [],
+  //   }
+  // },
+  // async created() {
+  //   const response = await axios.get('http://localhost:3000/products')
+  //   this.products = response.data
+  // },
+}
 </script>
 
-<style></style>
+<style scoped>
+p {
+  margin: 0;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+}
+.item {
+  display: inline-block;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+.product-image {
+  width: 400px;
+  height: 250px;
+}
+.app {
+  position: relative;
+}
+.cart-wrapper {
+  position: sticky;
+  float: right;
+  bottom: 50px;
+  right: 50px;
+}
+.cart-wrapper .btn {
+  display: inline-block;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+</style>
