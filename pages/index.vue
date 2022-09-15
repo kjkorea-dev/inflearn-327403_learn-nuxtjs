@@ -2,7 +2,12 @@
   <div class="app">
     <main>
       <ul>
-        <li v-for="product in products" :key="product.id" class="item flex">
+        <li
+          v-for="product in products"
+          :key="product.id"
+          class="item flex"
+          @click="moveToDetailPage(product.id)"
+        >
           <img
             class="product-image"
             :src="product.imageUrl"
@@ -37,6 +42,12 @@ export default {
   //   const response = await axios.get('http://localhost:3000/products')
   //   this.products = response.data
   // },
+  methods: {
+    moveToDetailPage(id) {
+      // console.log(id)
+      this.$router.push(`detail/${id}`)
+    },
+  },
 }
 </script>
 
