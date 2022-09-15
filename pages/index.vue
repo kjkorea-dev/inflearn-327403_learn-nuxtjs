@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <main>
+      <SearchInput></SearchInput>
       <ul>
         <li
           v-for="product in products"
@@ -23,7 +24,9 @@
 
 <script>
 import axios from 'axios'
+import SearchInput from '~/components/SearchInput.vue'
 export default {
+  components: { SearchInput },
   async asyncData() {
     const response = await axios.get('http://localhost:3000/products')
     // console.log(response)
@@ -33,15 +36,6 @@ export default {
     }))
     return { products }
   },
-  // data() {
-  //   return {
-  //     products: [],
-  //   }
-  // },
-  // async created() {
-  //   const response = await axios.get('http://localhost:3000/products')
-  //   this.products = response.data
-  // },
   methods: {
     moveToDetailPage(id) {
       // console.log(id)
