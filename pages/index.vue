@@ -21,6 +21,9 @@
           <span>{{ product.price }}</span>
         </li>
       </ul>
+      <div class="cart-wrapper">
+        <button class="btn" @click="moveToCartPage">Go to Cart</button>
+      </div>
     </main>
   </div>
 </template>
@@ -55,6 +58,9 @@ export default {
         ...item,
         imageUrl: `${item.imageUrl}?random=${Math.random()}`,
       }))
+    },
+    moveToCartPage() {
+      this.$router.push('/cart')
     },
   },
 }
