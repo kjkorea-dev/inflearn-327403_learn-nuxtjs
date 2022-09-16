@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div class="input-wrapper flex">
     <input
       type="text"
       :value="value"
+      class="searchInput"
       @input="$emit('input', $event.target.value)"
     />
-    <button @click="$emit('search')">검색</button>
+    <button class="btn" @click="$emit('search')">검색</button>
   </div>
 </template>
 
@@ -20,4 +21,18 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.input-wrapper {
+  height: 40px;
+  margin: 1rem 0;
+}
+.search-input {
+  width: 200px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.btn {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+</style>
