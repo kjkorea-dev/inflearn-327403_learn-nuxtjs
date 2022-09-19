@@ -28,9 +28,9 @@
 
 <script>
 export default {
-  async asyncData({ store }) {
-    await store.dispatch('FETCH_CART_ITEMS')
-  },
+  // async asyncData({ store }) {
+  //   await store.dispatch('FETCH_CART_ITEMS')
+  // },
 }
 </script>
 
