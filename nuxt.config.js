@@ -39,4 +39,11 @@ export default {
   server: {
     port: process.env.NODE_ENV === 'production' ? null : 4000,
   },
+
+  env: {
+    baseURL:
+      process.env.NODE_ENV === 'production'
+        ? 'https://my-json-server.typicode.com/kjkorea-dev/inflearn-327403_learn-nuxtjs-api'
+        : 'http://localhost:3000',
+  },
 }
