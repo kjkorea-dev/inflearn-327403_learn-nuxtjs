@@ -25,6 +25,29 @@ export default {
     const product = response.data
     return { product }
   },
+  // data연결은 head를 function형태로 작성
+  head() {
+    return {
+      title: `${this.product.name}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.product.name}`,
+        },
+      ],
+    }
+  },
+  // head: {
+  //   title: 'Shopping Item Details',
+  //   meta: [
+  //     {
+  //       hid: 'description',
+  //       name: 'description',
+  //       content: 'This page is Shopping Item Details',
+  //     },
+  //   ],
+  // },
   methods: {
     async addToCart() {
       await createCartItem(this.product)
