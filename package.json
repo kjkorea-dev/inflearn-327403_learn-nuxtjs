@@ -2,7 +2,7 @@
   "name": "nflearn-327403_learn-nuxtjs",
   "version": "1.0.0",
   "engines": {
-    "node": ">=16.17.0"
+    "node": "16.x"
   },
   "private": true,
   "scripts": {
