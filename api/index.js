@@ -10,7 +10,7 @@ function fetchProductById(id) {
 
 function fetchProductByKeyword(keyword) {
   return instance.get('/products', {
-    params: { name_like: keyword },
+    params: keyword ? { name_like: keyword } : null,
   })
 }
 
