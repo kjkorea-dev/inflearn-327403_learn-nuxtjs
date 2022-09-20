@@ -35,6 +35,21 @@ export default {
           name: 'description',
           content: `${this.product.name}`,
         },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${this.product.name}`,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: `This is wonderful ${this.product.name}`,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'http://placeimg.com/640/480/fashion',
+        },
       ],
     }
   },
